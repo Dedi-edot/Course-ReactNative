@@ -3,10 +3,10 @@ import React from 'react';
 import {
   View,
   Text,
-  ScrollView,
   TouchableOpacity,
   TouchableHighlight,
   StyleSheet,
+  FlatList,
 } from 'react-native';
 import {primaryBrand, secondaryBrand} from '../styles/colors';
 import {padding, margin} from '../styles/index';
@@ -84,7 +84,7 @@ const TopicScrollView = () => {
       todoActivity: 'Rebahan',
     },
     {
-      todoActivity: 'Mandi',
+      todoActivity: 'Mandi Pagi',
     },
     {
       todoActivity: 'Makan',
@@ -96,16 +96,16 @@ const TopicScrollView = () => {
       todoActivity: 'Bermain',
     },
     {
-      todoActivity: 'Mandi',
+      todoActivity: 'Mandi Sore',
     },
     {
-      todoActivity: 'Sholat',
+      todoActivity: 'Sholat Malam',
     },
     {
-      todoActivity: 'Belajar',
+      todoActivity: 'Belajar Coding',
     },
     {
-      todoActivity: 'Coding',
+      todoActivity: 'Coding Malam',
     },
     {
       todoActivity: 'Tidur',
@@ -118,10 +118,25 @@ const TopicScrollView = () => {
     });
   };
 
+  // const renderTodosFlatList = todoActivity => {
+  //   return <TodoCount todoActivity={todoActivity} />;
+  // };
+
+  const renderTodosFlatList = ({item}) => {
+    return <TodoCount todoActivity={item.todoActivity} />;
+  };
+
   return (
-    <ScrollView style={{backgroundColor: 'lightblue', height: '100%'}}>
-      {renderTodos()}
-    </ScrollView>
+    <View style={{backgroundColor: 'lightblue', height: '100%'}}>
+      {/* {renderTodos()} */}
+      <FlatList
+        data={todoData}
+        keyExtractor={item => item.todoActivity}
+        // renderItem={({item}) => <TodoCount todoActivity={item.todoActivity} />}
+        // renderItem={({item}) => renderTodosFlatList(item.todoActivity)}
+        renderItem={renderTodosFlatList}
+      />
+    </View>
   );
 };
 
