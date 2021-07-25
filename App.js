@@ -1,11 +1,11 @@
 import React from 'react';
 import {View} from 'react-native';
-import TopicScrollView from './src/screens/TopicScrollView';
+import TopicDimensions from './src/screens/Dimensions';
 
 const App = () => {
   return (
     <View>
-      <TopicScrollView />
+      <TopicDimensions />
     </View>
   );
 };
