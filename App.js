@@ -1,11 +1,12 @@
 import React from 'react';
-import {View} from 'react-native';
-import TopicDimensions from './src/screens/Dimensions';
+import {View, StatusBar} from 'react-native';
+import TopicSafeAreaView from './src/screens/TopicSafeAreaView';
 
 const App = () => {
   return (
     <View>
-      <TopicDimensions />
+      <StatusBar translucent />
+      <TopicSafeAreaView />
     </View>
   );
 };
